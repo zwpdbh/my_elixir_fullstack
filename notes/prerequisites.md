@@ -23,7 +23,16 @@ erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'
 elixir -v
 ```
 
-## Start Postgres via dockerfile 
+## Setup specific elixir and erlang version per project
+
+Edit `.tool-versions` file in the root of your project:
+
+```txt
+elixir 1.16.1-otp-26
+erlang 26.2.2
+```
+
+## Start Postgres via dockerfile
 
 - Create a `dev.yaml`:
 
@@ -51,7 +60,7 @@ volumes:
 - Start up using `sudo docker compose -f dev.yaml up`
 - Visit: [Login - Adminer](http://localhost:8080/)
   
-## Install Phoenix 
+## Install Phoenix
 
 - [Installation](https://hexdocs.pm/phoenix/installation.html)
   
