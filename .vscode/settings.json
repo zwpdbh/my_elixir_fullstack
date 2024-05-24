@@ -1,0 +1,23 @@
+{
+  "files.associations": {
+    "*.heex": "phoenix-heex",
+    "*.eex": "phoenix-heex"
+  },
+  "tailwindCSS.includeLanguages": {
+    "phoenix-heex": "html",
+    "elixir": "html",
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "class: \"(.*)\""
+  ],
+  "emmet.showAbbreviationSuggestions": true,
+  "emmet.includeLanguages": {
+    "phoenix-heex": "html",
+    "html-eex": "html"
+  },
+  "editor.quickSuggestions": {
+    "comments": "inline",
+    "strings": "on",
+    "other": "on"
+  },
+}
