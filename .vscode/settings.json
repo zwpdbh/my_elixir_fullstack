@@ -13,11 +13,18 @@
   "emmet.showAbbreviationSuggestions": true,
   "emmet.includeLanguages": {
     "phoenix-heex": "html",
-    "html-eex": "html"
+    "html-eex": "html",
+    "HTML (EEx)": "html"
   },
   "editor.quickSuggestions": {
     "comments": "inline",
     "strings": "on",
     "other": "on"
   },
+  "editor.formatOnSave": true,
+  "elixirLS.dialyzerEnabled": true,
+  "elixirLS.signatureAfterComplete": false,
+  "elixirLS.fetchDeps": false,
+  "elixirLS.trace.server": "off",
+  "elixirLS.suggestSpecs": false,
 }
