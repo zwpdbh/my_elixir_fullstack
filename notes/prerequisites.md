@@ -72,3 +72,31 @@ mix archive.install hex phx_new
 ## Create hello project
 
 - [Up and running](https://hexdocs.pm/phoenix/up_and_running.html)
+
+## Proxy hex packages
+
+- Elixir use `hex` to manage packages.
+- Permanently select a mirror
+  - For mix
+  
+      ```sh
+      # For mix 
+      mix hex.config mirror_url https://repo.hex.pm 
+      ```
+
+  - For rebar3
+  
+    Add to the global or a project’s top level `rebar.config, {rebar_packages_cdn, "https://repo.hex.pm"}.`. For more information see rebar3’s package support and configuration documentation.
+
+  See: [Mirrors](https://hex.pm/docs/mirrors)
+
+- Temporarily select a mirror, Hex commands can be prefixed with an environment variable in the shell.
+  
+  ```sh
+  HEX_MIRROR=https://repo.hex.pm mix deps.get
+  HEX_CDN=https://repo.hex.pm rebar3 update
+
+  # Or 
+  export HEX_MIRROR="https://hexpm.upyun.com"
+  export HEX_CDN="https://hexpm.upyun.com"
+  ```
