@@ -24,7 +24,7 @@ iex(elixir_horizion@localhost)1> Node.self
 ## Start Livebook using Container image
 
 ```sh
-docker run \
+sudo docker run \
 --network=host \
 -e LIVEBOOK_DISTRIBUTION=name \
 -e LIVEBOOK_COOKIE=some_token \
@@ -33,12 +33,12 @@ docker run \
 -e LIVEBOOK_IFRAME_PORT=8008 \
 -u $(id -u):$(id -g) \
 -v $(pwd):/data \
-ghcr.io/livebook-dev/livebook:0.8.1
+ghcr.io/livebook-dev/livebook:0.12.1
 ```
 
 - `--network` specify the docker container we run use [Host network driver](https://docs.docker.com/network/drivers/host/).
-- Those LIVEBOOK options are from [Livebook README](https://github.com/livebook-dev/livebook).
-- Tag `0.8.1` from Livebook image support OTP25.
+- Those LIVEBOOK options are from [Livebook README](https://github.com/livebook-dev/livebook/releases).
+- Tag `0.12.1` from Livebook image support OTP26.
 - If succeed, it should oupt something like:
 
   ```sh
