@@ -72,6 +72,7 @@ mix archive.install hex phx_new
 ## Create hello project
 
 - [Up and running](https://hexdocs.pm/phoenix/up_and_running.html)
+- Don't forget to run `mix ecto.create`.
 
 ## Proxy hex packages
 
@@ -100,3 +101,35 @@ mix archive.install hex phx_new
   export HEX_MIRROR="https://hexpm.upyun.com"
   export HEX_CDN="https://hexpm.upyun.com"
   ```
+
+## Proxy docker images
+
+Edit or create the Docker daemon configuration file (`sudo vi /etc/docker/daemon.json`) to include the following mirror configurations:
+
+```json
+{
+  "registry-mirrors": [
+    "https://registry.docker-cn.com",
+    "https://docker.mirrors.ustc.edu.cn",
+    "https://hub-mirror.c.163.com",
+    "https://mirror.baidubce.com"
+  ]
+}
+```
+
+After adding the mirror configurations, restart the Docker daemon to apply the changes:
+
+```sh
+sudo service docker restart
+sudo docker info
+```
+
+You shall see information like:
+
+```txt
+ Registry Mirrors:
+  https://registry.docker-cn.com/
+  https://docker.mirrors.ustc.edu.cn/
+  https://hub-mirror.c.163.com/
+  https://mirror.baidubce.com/
+```
