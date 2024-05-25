@@ -17,7 +17,7 @@ iex(elixir_horizion@localhost)1> Node.self
 ```
 
 - `--name` specify we running node using full name mode.
-  - `:"elixir_horizion@localhost"` is the node name.
+  - `:"elixir_horizion@localhost"` is the node name checked by `Node.self`
   - There is also a `--sname` short name option.
 - `--cookie` is the shared token for all connecting nodes. Here is `some_token`.
 
@@ -49,13 +49,11 @@ ghcr.io/livebook-dev/livebook:0.12.1
 
 - Create or open a Livebook.
 - Go to
-
   - Runtime settings
   - Configure
-    - `Name` should be: `elixir_horizion@localhost`
+    - `Name` should be: `elixir_horizion@localhost` which could be checked in target project's iex with `Node.self`
     - `Cookie` should be: the cookie we used above, such as `some_token`.
   - If connect succeed, it should shows the reconnect and disconnect option along with memory metric for the connect node.
-
 - If connected, it means we could create code block and execute any code as if we are using `iex`.
 
 ## Summary
@@ -69,6 +67,18 @@ ghcr.io/livebook-dev/livebook:0.12.1
 
 ## Troubleshooting
 
+### Cannot get connection id for node :":myapp@localhost"
+
+- If connect `xxx@localhost` doesn't work, try `xxx@127.0.0.1` instead when start project with `--name`.
+
+### Protocol 'inet_tcp': the name livebook_server@zwpdbh seems to be in use by another Erlang node
+
+- see [--name xxxxx appears to be ignored when provided with livebook start](https://github.com/livebook-dev/livebook/discussions/1356)
+- Reason: [Docker is using release scripts, which is separate from the Livebook CLI.](https://hexdocs.pm/mix/Mix.Tasks.Release.html#module-environment-variables).
+- Solution: provide `-e RELEASE_NODE=elixir_horizion`.
+
+### Others
+
 - Evaluator.IOProxy module into the remote node, potentially due to Erlang/OTP version mismatch.
   - We have to make sure the Livebook's OTP version is compatibe with connecting node's OTP version.
 - docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
@@ -80,8 +90,3 @@ ghcr.io/livebook-dev/livebook:0.12.1
   - uninstall docker desktop from windows 11
   - [install docker in Ubuntu20.04](https://docs.docker.com/engine/install/ubuntu/)
   - Start livebook docker as before, you should click and visit Livebook from that address now.
-
-- Protocol 'inet_tcp': the name livebook_server@zwpdbh seems to be in use by another Erlang node
-  - see [--name xxxxx appears to be ignored when provided with livebook start](https://github.com/livebook-dev/livebook/discussions/1356)
-  - Reason: [Docker is using release scripts, which is separate from the Livebook CLI. ](https://hexdocs.pm/mix/Mix.Tasks.Release.html#module-environment-variables).
-  - Solution: provide `-e RELEASE_NODE=elixir_horizion`.
