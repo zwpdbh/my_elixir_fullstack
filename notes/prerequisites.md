@@ -72,7 +72,51 @@ mix archive.install hex phx_new
 ## Create hello project
 
 - [Up and running](https://hexdocs.pm/phoenix/up_and_running.html)
-- Don't forget to run `mix ecto.create`.
+  
+  ```sh 
+  mix phx.new hello
+  cd hello
+  mix ecto.create
+  ```
+
+  If install dependencies is interrupted, run
+
+  ```sh
+  mix deps.get
+  mix assets.setup
+  mix deps.compile
+  ```
+
+## Start project with liveview as super repo
+
+```sh
+# First, start the project with node name
+iex --name hello@127.0.0.1 --cookie some_token -S mix phx.server
+
+# Then, from another terminal 
+sudo docker run \
+--network=host \
+-e LIVEBOOK_DISTRIBUTION=name \
+-e LIVEBOOK_COOKIE=some_token \
+-e LIVEBOOK_NODE=livebook@localhost \
+-e LIVEBOOK_PORT=8007 \
+-e LIVEBOOK_IFRAME_PORT=8008 \
+-e RELEASE_NODE=livebook_hello \
+-u $(id -u):$(id -g) \
+-v $(pwd):/data \
+ghcr.io/livebook-dev/livebook:0.12.1
+```
+
+## Connect to the phoenix project from Livebook
+
+- Create or open a Livebook.
+- Go to
+  - Runtime settings
+  - Configure
+    - `Name` should be: `hello@127.0.0.1` which could be checked in target project's iex with `Node.self`
+    - `Cookie` should be: the cookie we used above, such as `some_token`.
+  - If connect succeed, it should shows the reconnect and disconnect option along with memory metric for the connect node.
+- If connected, it means we could create code block and execute any code as if we are using `iex`.
 
 ## Proxy hex packages
 
@@ -133,3 +177,9 @@ You shall see information like:
   https://hub-mirror.c.163.com/
   https://mirror.baidubce.com/
 ```
+
+## Troubleshooting
+
+### [error] `inotify-tools` is needed to run `file_system` for your system
+
+Solution: `sudo apt install inotify-tools`
