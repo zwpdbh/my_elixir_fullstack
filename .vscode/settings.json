@@ -27,6 +27,7 @@
     "strings": "on",
     "other": "on"
   },
+  "editor.wordBasedSuggestions": "matchingDocuments",
   "tailwindCSS.includeLanguages": {
     "phoenix-heex": "html",
     "elixir": "html",
