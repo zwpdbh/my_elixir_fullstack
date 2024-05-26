@@ -12,7 +12,6 @@
 ## Optional extensions
 
 - [Elixir Map](https://marketplace.visualstudio.com/items?itemName=samuel-pordeus.elixir-map)
-- [Lexical (Elixir Language Server)](https://marketplace.visualstudio.com/items?itemName=lexical-lsp.lexical)
 
 ## Config vscode settings
 
