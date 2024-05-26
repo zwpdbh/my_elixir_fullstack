@@ -1,7 +1,30 @@
 {
   "files.associations": {
     "*.heex": "phoenix-heex",
-    "*.eex": "phoenix-heex"
+  },
+  "[elixir]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "[phoenix-heex]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "emmet.includeLanguages": {
+    "phoenix-heex": "html",
+    "elixir": "html",
+  },
+  "emmet.showAbbreviationSuggestions": true,
+  "editor.formatOnSave": true,
+  "elixirLS.dialyzerEnabled": true,
+  "elixirLS.signatureAfterComplete": false,
+  "elixirLS.fetchDeps": false,
+  "elixirLS.trace.server": "off",
+  "elixirLS.suggestSpecs": false,
+  "editor.quickSuggestions": {
+    "comments": "inline",
+    "strings": "on",
+    "other": "on"
   },
   "tailwindCSS.includeLanguages": {
     "phoenix-heex": "html",
@@ -10,21 +33,4 @@
   "tailwindCSS.experimental.classRegex": [
     "class: \"(.*)\""
   ],
-  "emmet.showAbbreviationSuggestions": true,
-  "emmet.includeLanguages": {
-    "phoenix-heex": "html",
-    "html-eex": "html",
-    "HTML (EEx)": "html"
-  },
-  "editor.quickSuggestions": {
-    "comments": "inline",
-    "strings": "on",
-    "other": "on"
-  },
-  "editor.formatOnSave": true,
-  "elixirLS.dialyzerEnabled": true,
-  "elixirLS.signatureAfterComplete": false,
-  "elixirLS.fetchDeps": false,
-  "elixirLS.trace.server": "off",
-  "elixirLS.suggestSpecs": false,
 }
