@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "*.heex": "phoenix-heex",
+    "*.livemd": "markdown"
   },
   "[elixir]": {
     "editor.formatOnSave": true,
