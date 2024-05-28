@@ -107,6 +107,15 @@ sudo docker run \
 ghcr.io/livebook-dev/livebook:0.12.1
 ```
 
+- `--network` specify the docker container we run use [Host network driver](https://docs.docker.com/network/drivers/host/).
+- Those LIVEBOOK options are from [Livebook README](https://github.com/livebook-dev/livebook/releases).
+- Tag `0.12.1` from Livebook image support OTP26.
+- If succeed, it should oupt something like:
+
+  ```sh
+  [Livebook] Application running at http://0.0.0.0:8007/?token=gwc234cmrxsfnqkaeeu6hv7wjhg3qe2g
+  ```
+
 ## Connect to the phoenix project from Livebook
 
 - Create or open a Livebook.
